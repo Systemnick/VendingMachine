@@ -21,9 +21,9 @@ class Rouble extends BaseCoin
     protected $material;
 
     /**
-     * Coin diameter.
+     * Coin diameter in millimeters.
      *
-     * @var string
+     * @var int
      */
     protected $diameter;
 
@@ -36,15 +36,16 @@ class Rouble extends BaseCoin
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getDiameter(): string
+    public function getDiameter(): int
     {
         return $this->diameter;
     }
 
     /**
      * Coin currency.
+     *
      * @return string
      */
     public function getCurrency(): string
@@ -52,9 +53,20 @@ class Rouble extends BaseCoin
         return 'RUR';
     }
 
-//    public function __construct(float $weight, string $shape, string $material)
-//    {
-//        parent::__construct(['weight' => $weight, 'shape' => $shape]);
-//        $this->material = $material;
-//    }
+    /**
+     * Rouble constructor.
+     *
+     * @param mixed[] $params {
+     *      @option int $weight
+     *      @option float $weight
+     *      @option string $shape
+     *      @option string $material
+     * }
+     */
+    public function __construct(array $params = [])
+    {
+        $params['material'] = $params['material'] ?: static::MATERIAL_1;
+        $params['diameter'] = $params['diameter'] ?: 15;
+        parent::__construct($params);
+    }
 }

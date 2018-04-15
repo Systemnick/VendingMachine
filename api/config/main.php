@@ -2,8 +2,8 @@
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
-    require __DIR__ . '/params.php'
-//    require __DIR__ . '/params-local.php'
+    require __DIR__ . '/params.php',
+    require __DIR__ . '/params-local.php'
 );
 
 return [
@@ -11,11 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'api\controllers',
     'bootstrap' => ['log'],
-    'modules' => [
-//        'v1' => [
-//            'class' => \api\modules\v1\Module,
-//        ],
-    ],
+    'modules' => [],
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',

@@ -27,17 +27,12 @@ class BaseCoin extends ActiveRecord
      */
     protected $shape;
 
-//    /**
-//     * BaseCoin constructor.
-//     *
-//     * @param float $weight
-//     * @param string $shape
-//     */
-//    public function __construct(float $weight, string $shape)
-//    {
-//        $this->weight = $weight;
-//        $this->shape = $shape;
-//    }
+    /**
+     * Coin value.
+     *
+     * @var string
+     */
+    protected $value;
 
     /**
      * @return float
@@ -53,5 +48,21 @@ class BaseCoin extends ActiveRecord
     public function getShape(): string
     {
         return $this->shape;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrency(): string
+    {
+        return '';
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue(): string
+    {
+        return $this->value;
     }
 }
